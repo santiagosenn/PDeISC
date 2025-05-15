@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Personas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Formulario de Personas</h1>
+    <form id="personaForm">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required pattern="[A-Za-zÁÉÍÓÚÑáéíóúñ ]+" minlength="2">
+
+        <label>Apellido:</label>
+        <input type="text" name="apellido" required pattern="[A-Za-zÁÉÍÓÚÑáéíóúñ ]+" minlength="2">
+
+        <label>Edad:</label>
+        <input type="number" name="edad" required min="0" max="120">
+
+        <label>Fecha de nacimiento:</label>
+        <input type="date" name="fecha" required>
+
+        <label>Sexo:</label>
+        <select name="sexo" required>
+            <option value="">Seleccionar</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Femenino">Femenino</option>
+        </select>
+
+        <label>Documento:</label>
+        <input type="text" name="documento" required pattern="\d+" minlength="7" maxlength="10">
+
+        <label>Estado civil:</label>
+        <select name="estadoCivil" required>
+            <option value="">Seleccionar</option>
+            <option value="Soltero/a">Soltero/a</option>
+            <option value="Casado/a">Casado/a</option>
+            <option value="Divorciado/a">Divorciado/a</option>
+        </select>
+
+        <label>Nacionalidad:</label>
+        <input type="text" name="nacionalidad" required>
+
+        <label>Teléfono:</label>
+        <input type="tel" name="telefono" required pattern="\d{7,15}">
+
+        <label>Correo electrónico:</label>
+        <input type="email" name="mail" required>
+
+        <label>¿Tiene hijos?</label>
+        <select name="tieneHijos" id="tieneHijos" required>
+            <option value="">Seleccionar</option>
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+        </select>
+
+        <label for="cantidadHijos" id="labelHijos" style="display:none;">¿Cuántos hijos?</label>
+        <input type="number" name="cantidadHijos" id="cantidadHijos" min="0" style="display:none;">
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <div id="mensaje"></div>
+
+    <h2>Personas registradas:</h2>
+    <ul id="listaPersonas"></ul>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

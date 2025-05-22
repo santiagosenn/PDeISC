@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>listas</h1>
+    </header>
+    <section>
+        <div class="listas">
+            <h2>Números (Ordenar de menor a mayor)</h2>
+            <input type="number" id="numero" placeholder="Número">
+            <button onclick="agregarNumero()">Agregar</button>
+            <ul id="listaNumeros"></ul>
+            <button onclick="ordenarNumeros()">Ordenar</button>
+            <p id="resultadoNumeros"></p>
+        </div>
+
+        <div class="listas">
+            <h2>Palabras (Orden alfabético)</h2>
+            <input type="text" id="palabra" placeholder="Palabra">
+            <button onclick="agregarPalabra()">Agregar</button>
+            <ul id="listaPalabras"></ul>
+            <button onclick="ordenarPalabras()">Ordenar</button>
+            <p id="resultadoPalabras"></p>
+        </div>
+
+        <div class="listas">
+            <h2>Personas (Ordenar por edad)</h2>
+            <input type="text" id="nombrePersona" placeholder="Nombre">
+            <input type="number" id="edadPersona" placeholder="Edad">
+            <button onclick="agregarPersona()">Agregar</button>
+            <ul id="listaPersonas"></ul>
+            <button onclick="ordenarPersonas()">Ordenar</button>
+            <p id="resultadoPersonas"></p>
+        </div>
+    </section>
+    <script src="scripts.js"></script>
+</body>
+</html>

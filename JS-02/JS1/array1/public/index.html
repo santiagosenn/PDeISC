@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Push</title>
+</head>
+<body>
+
+    <header>
+        <h1>Listas</h1>
+    </header>
+
+    <section>
+        <div class="listas">
+            <h2>Lista de frutas</h2>
+            <form id="form-frutas">
+                <input type="text" id="input-fruta" placeholder="Agregar fruta" required>
+                <button type="submit">Agregar</button>
+            </form>
+            <ul id="lista-frutas"></ul>
+        </div>
+
+        <div class="listas">
+            <h2>Lista de amigos</h2>
+            <form id="form-amigos">
+                <input type="text" id="input-amigo" placeholder="Agregar amigo" required>
+                <button type="submit">Agregar</button>
+            </form>
+            <ul id="lista-amigos"></ul>
+        </div>
+
+        <div class="listas">
+            <h2>Lista de números</h2>
+            <form id="form-numeros">
+                <input type="number" id="input-numero" placeholder="Agregar número" required>
+                <button type="submit">Agregar</button>
+            </form>
+            <ul id="lista-numeros"></ul>
+
+            <div id="mensaje-error" style="color: red; margin-top: 5px;"></div>
+            <ul id="lista-numeros"></ul>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

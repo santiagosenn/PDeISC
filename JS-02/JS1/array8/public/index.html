@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>includes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>listas</h1>
+    </header>
+
+    <section>
+        <div class="listas">
+            <h2>¿Palabra presente?</h2>
+            <input type="text" id="palabras" placeholder="Ej: sol, luna, estrella">
+            <input type="text" id="palabraBuscar" placeholder="Buscar palabra">
+            <button onclick="buscarPalabra()">Buscar</button>
+            <ul id="resultado1"></ul>
+        </div>
+
+        <div class="listas">
+            <h2>¿Color existe?</h2>
+            <input type="text" id="colores" placeholder="Ej: rojo, azul, verde">
+            <input type="text" id="colorBuscar" placeholder="Buscar color">
+            <button onclick="buscarColor()">Buscar</button>
+            <ul id="resultado2"></ul>
+        </div>
+
+        <div class="listas">
+            <h2>¿Número ya está antes de sumar?</h2>
+            <input type="text" id="numeros" placeholder="Ej: 10, 20, 30, 40">
+            <input type="number" id="numeroNuevo" placeholder="Número a agregar">
+            <button onclick="verificarYAgregar()">Verificar y Agregar</button>
+            <ul id="resultado3"></ul>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

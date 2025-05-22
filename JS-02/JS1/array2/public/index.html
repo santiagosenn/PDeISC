@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Pop</title>
+</head>
+<body>
+    <header>
+        <h1>Listas</h1>
+    </header>
+
+    <section>
+        <div>
+            <h2>Lista de animales</h2>
+            <form id="form-animales">
+                <input type="text" id="input-animal" placeholder="Agregar animal" required />
+                <button type="submit">Agregar</button>
+            </form>
+            <ul id="lista-animales"></ul>
+            <button id="btn-pop-animal">Eliminar último animal</button>
+            <p id="mensaje-pop-animal" style="color: red; margin-top: 5px;"></p>
+        </div>
+
+        <div>
+            <h2>Lista de productos</h2>
+            <form id="form-productos">
+                <input type="text" id="input-producto" placeholder="Agregar producto" required />
+                <button type="submit">Agregar</button>
+            </form>
+            <ul id="lista-productos"></ul>
+            <button id="btn-pop-producto">Eliminar último producto</button>
+            <p id="mensaje-pop-producto" style="color: red; margin-top: 5px;"></p>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

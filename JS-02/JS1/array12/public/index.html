@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Reduce</title>
+</head>
+<body>
+    <header>
+        <h1>lista</h1>
+    </header>
+
+    <section>
+        <div class="listas">
+            <h2>Suma de números</h2>
+            <form id="form-suma">
+                <input type="number" id="input-suma" placeholder="Número" required />
+                <button type="submit">Agregar número</button>
+            </form>
+            <ul id="lista-suma"></ul>
+            <button id="btn-sumar">Sumar todos</button>
+            <div id="resultado-suma" class="resultado"></div>
+        </div>
+
+        <div class="listas">
+            <h2>Multiplicación de números</h2>
+            <form id="form-multiplicar">
+                <input type="number" id="input-multiplicar" placeholder="Número" required />
+                <button type="submit">Agregar número</button>
+            </form>
+            <ul id="lista-multiplicar"></ul>
+            <button id="btn-multiplicar">Multiplicar todos</button>
+            <div id="resultado-multiplicar" class="resultado"></div>
+        </div>
+
+        <div class="listas">
+            <h2>Total de precios</h2>
+            <form id="form-precios">
+                <input type="number" id="input-precios" placeholder="Precio" required />
+                <button type="submit">Agregar precio</button>
+            </form>
+            <ul id="lista-precios"></ul>
+            <button id="btn-total-precios">Obtener total</button>
+            <div id="resultado-precios" class="resultado"></div>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

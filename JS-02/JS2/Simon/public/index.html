@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Simon</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Simon dice</h1>
+    <div id="pantalla-registro">
+        <form id="formRegistro">
+            <label for="nombre">Ingresa tu nombre:</label>
+            <input type="text" id="nombre" required>
+            <button type="submit">Comenzar</button>
+        </form>
+    </div>
+
+    <div id="pantalla-juego" style="display: none;">
+        <h2 id="jugador">Jugador: </h2>
+        <h2 id="puntajeMaximo">Puntaje máximo: 0</h2>
+        <div class="contenedor">
+        <div class="boton amarillo" id="verde"></div>
+        <div class="boton rojo" id="rojo"></div>
+        <div class="boton azul" id="amarillo"></div>
+        <div class="boton verde" id="azul"></div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

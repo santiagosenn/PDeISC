@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Ta-Te-Ti</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="modoJuego">
+        <h2>Selecciona un modo de juego:</h2>
+        <button onclick="iniciarJuego('humano')">Contra Humano</button>
+        <button onclick="iniciarJuego('maquina')">Contra Máquina</button>
+    </div>
+
+    <div id="registro" style="display: none;">
+      <h3>Ingresá tu nombre de usuario</h3>
+      <input type="text" id="nombreUsuario" placeholder="Ej: Azul123">
+      <button onclick="registrarUsuario()">Comenzar</button>  
+    </div>
+
+    <div id="infoUsuario" style="display: none;">
+        <h3 id="nombreMostrado"></h3>
+        <p>Victorias: <span id="victorias">0</span></p>
+    </div>
+
+    <div id="mensajeTurno"></div>
+
+    <div id="tablero" style="display: none;"></div>
+
+    <button id="reiniciar" onclick="reiniciarJuego()" style="display: none;">Reiniciar</button>
+
+
+    <script src="scripts.js"></script>
+</body>
+</html>

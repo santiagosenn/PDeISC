@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Shift</title>
+</head>
+<body>
+    <header>
+        <h1>Listas</h1>
+    </header>
+
+    <section>
+        <div class="listas">
+            <h2>Lista de números</h2>
+            <form id="form-numeros">
+                <input type="number" id="input-numero" placeholder="Agregar número" required />
+                <button type="submit">Agregar número</button>
+            </form>
+            <button id="btn-quitar-numero">Quitar primer número</button>
+            <ul id="lista-numeros"></ul>
+            <div id="mensaje-numero" style="margin-top: 5px; color: green;"></div>
+        </div>
+
+        <div class="listas">
+            <h2>Mensajes de chat</h2>
+            <form id="form-mensajes">
+                <input type="text" id="input-mensaje" placeholder="Agregar mensaje" required />
+                <button type="submit">Agregar mensaje</button>
+            </form>
+            <button id="btn-quitar-mensaje">Quitar primer mensaje</button>
+            <ul id="lista-mensajes"></ul>
+            <div id="mensaje-mensaje" style="margin-top: 5px; color: green;"></div>
+        </div>
+
+        <div class="listas">
+            <h2>Cola de atención al cliente</h2>
+            <form id="form-clientes">
+                <input type="text" id="input-cliente" placeholder="Agregar cliente" required />
+                <button type="submit">Agregar cliente</button>
+            </form>
+            <button id="btn-atender-cliente">Atender cliente (Quitar primero)</button>
+            <ul id="lista-clientes"></ul>
+            <div id="mensaje-cliente" style="margin-top: 10px; color: green;"></div>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

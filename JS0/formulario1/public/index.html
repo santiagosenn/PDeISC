@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>formulario</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Inicio de Sesión</h1>
+
+    <form id="formulario">
+        <label for="usr">Escribí tu nombre de usuario</label>
+        <input type="text" name="usr" id="usr" required minlength="3" pattern=".*[A-Za-zÁÉÍÓÚáéíóúÑñ].*">
+
+        <label for="pass">Escribí tu contraseña</label>
+        <input type="password" name="pass" id="pass" required minlength="4">
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <div id="mensaje"></div>
+
+    <h2>Usuarios registrados:</h2>
+    <ul id="userList"></ul>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

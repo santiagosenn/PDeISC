@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>listas</h1>
+    </header>
+
+    <section>
+        <div class="listas">
+            <h2>Copia primeros 3 elementos</h2>
+            <input type="text" id="numeros" placeholder="Ej: 1,2,3,4,5">
+            <button onclick="copiarPrimerosTres()">Copiar</button>
+            <ul id="resultado1"></ul>
+        </div>
+
+        <div class="listas">
+            <h2>Copia parcial de películas</h2>
+            <input type="text" id="peliculas" placeholder="Ej: Matrix,Avatar,Shrek,Up,ET">
+            <button onclick="copiarParcialPeliculas()">Copiar</button>
+            <ul id="resultado2"></ul>
+        </div>
+
+        <div class="listas">
+            <h2>Últimos 3 elementos</h2>
+            <input type="text" id="datos" placeholder="Ej: a,b,c,d,e,f">
+            <button onclick="ultimosTres()">Mostrar</button>
+            <ul id="resultado3"></ul>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

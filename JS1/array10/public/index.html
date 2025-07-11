@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>map</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>listas</header>
+
+  <section>
+    <div class="listas">
+      <h2>Multiplicar números por 3</h2>
+      <input type="number" id="numInput" placeholder="Agregar número">
+      <button onclick="agregarNumero()">Agregar</button>
+      <button onclick="multiplicarPorTres()">Multiplicar</button>
+      <ul id="listaNumeros"></ul>
+      <ul id="resultadoNumeros"></ul>
+    </div>
+
+    <div class="listas">
+      <h2>Nombres en mayúsculas</h2>
+      <input type="text" id="nombreInput" placeholder="Agregar nombre">
+      <button onclick="agregarNombre()">Agregar</button>
+      <button onclick="nombresAMayusculas()">Convertir</button>
+      <ul id="listaNombres"></ul>
+      <ul id="resultadoNombres"></ul>
+    </div>
+
+    <div class="listas">
+      <h2>Precios con IVA (21%)</h2>
+      <input type="number" id="precioInput" placeholder="Agregar precio">
+      <button onclick="agregarPrecio()">Agregar</button>
+      <button onclick="aplicarIVA()">Aplicar IVA</button>
+      <ul id="listaPrecios"></ul>
+      <ul id="resultadoPrecios"></ul>
+    </div>
+  </section>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-/* === Reset básico === */
 * {
   margin: 0;
   padding: 0;
@@ -11,26 +10,23 @@ body {
   color: #333;
   line-height: 1.6;
   display: flex;
-  justify-content: center; /* centra horizontal */
-  min-height: 100vh;
+  justify-content: center;
   padding: 2rem;
 }
 
-/* Contenedor principal */
 .container {
   width: 100%;
-  max-width: 600px; /* ancho máximo */
-  margin: 0 auto;   /* centra horizontal */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Navbar */
 nav {
   background-color: #4a6cf7;
   padding: 1rem;
   border-radius: 8px;
   margin-bottom: 2rem;
   display: flex;
-  justify-content: center; /* centra los links */
+  justify-content: center;
   gap: 2rem;
 }
 
@@ -44,72 +40,58 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* Tarjetas de tareas */
-.task-card {
+.task-card, .detail-card, form {
   background: white;
   border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 1rem;
 }
 
-.task-card h2 {
-  margin-bottom: .5rem;
+.task-card h2, .detail-card h1, form h1 {
   color: #4a6cf7;
+  margin-bottom: 1rem;
 }
 
 .task-card a {
   color: #4a6cf7;
   text-decoration: none;
-  font-size: 0.9rem;
 }
 
 .task-card a:hover {
   text-decoration: underline;
 }
 
-/* Detalle */
-.detail-card {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-/* Formulario */
-form {
-  background: white;
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-form input,
-form textarea {
+form input, form textarea {
   width: 100%;
   padding: .6rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1rem;
 }
 
-form input:focus,
-form textarea:focus {
+form input:focus, form textarea:focus {
   outline: none;
   border-color: #4a6cf7;
 }
 
-form button {
+form button, .task-card button, .detail-card button {
   background: #4a6cf7;
   color: white;
   padding: .6rem 1.2rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
-form button:hover {
+form button:hover, .task-card button:hover, .detail-card button:hover {
   background: #3653d4;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: 1rem;
 }

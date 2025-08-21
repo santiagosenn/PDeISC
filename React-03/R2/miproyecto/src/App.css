@@ -1,0 +1,115 @@
+/* === Reset básico === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center; /* centra horizontal */
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* Contenedor principal */
+.container {
+  width: 100%;
+  max-width: 600px; /* ancho máximo */
+  margin: 0 auto;   /* centra horizontal */
+}
+
+/* Navbar */
+nav {
+  background-color: #4a6cf7;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center; /* centra los links */
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Tarjetas de tareas */
+.task-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.task-card h2 {
+  margin-bottom: .5rem;
+  color: #4a6cf7;
+}
+
+.task-card a {
+  color: #4a6cf7;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.task-card a:hover {
+  text-decoration: underline;
+}
+
+/* Detalle */
+.detail-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Formulario */
+form {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: .6rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #4a6cf7;
+}
+
+form button {
+  background: #4a6cf7;
+  color: white;
+  padding: .6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+form button:hover {
+  background: #3653d4;
+}

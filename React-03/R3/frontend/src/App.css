@@ -1,95 +1,210 @@
-body {
+/* --- BODY --- */
+body, #root {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #eef2f7; /* más suave que #f5f5f5 */
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.container {
+/* --- CONTENEDOR FORMULARIO --- */
+.form-container {
+  width: 100%;
   max-width: 1000px;
-  margin: auto;
-  background-color: #fff;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffffff, #f0f4f8); /* degradado suave */
+  padding: 50px 40px;
+  margin: 50px auto 20px auto;
+  border-radius: 16px; /* un poco más redondeado */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  box-sizing: border-box;
+  transition: transform 0.2s;
+}
+
+.form-container:hover {
+  transform: translateY(-3px); /* efecto sutil al pasar el mouse */
 }
 
 h1 {
   text-align: center;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 35px;
+  font-size: 28px;
+  letter-spacing: 1px;
 }
 
+/* --- FORMULARIO --- */
 form {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
-  flex: 1 1 200px; /* crece hasta llenar espacio, mínimo 200px */
+  flex: 1 1 250px;
+  min-width: 250px;
+  position: relative;
+  margin-bottom: 25px;
+  min-height: 90px;
 }
 
 input {
-  padding: 10px;
-  font-size: 14px;
-  border-radius: 5px;
+  padding: 14px 16px;
+  font-size: 16px;
+  border-radius: 8px;
   border: 1px solid #ccc;
   width: 100%;
   box-sizing: border-box;
-  transition: border 0.2s;
+  transition: all 0.3s;
+  background-color: #f9fafb; /* input más claro */
 }
 
 input:focus {
-  border-color: #007bff;
+  border-color: #4a90e2;
+  box-shadow: 0 0 8px rgba(74,144,226,0.3);
   outline: none;
+  background-color: #fff;
 }
 
+/* errores */
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 6px;
+  min-height: 18px;
+  width: 100%;
+}
+
+/* botón */
 button {
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 14px 28px;
+  font-size: 16px;
   border: none;
-  border-radius: 5px;
-  background-color: #007bff;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4a90e2, #357ab8);
   color: white;
   cursor: pointer;
-  transition: background-color 0.2s;
-  align-self: flex-start; /* alineado al inicio de la fila */
+  transition: all 0.3s;
+  align-self: flex-start;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 button:hover {
-  background-color: #0056b3;
+  background: linear-gradient(135deg, #357ab8, #246096);
+  transform: translateY(-2px);
 }
 
+/* --- CONTENEDOR TABLA --- */
+.table-container {
+  width: 100%;
+  max-width: 1400px;
+  background-color: #fff;
+  padding: 40px 30px;
+  margin: 50px auto 50px auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  overflow-x: auto;
+  box-sizing: border-box;
+}
+
+/* --- TABLA --- */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
+  margin-top: 10px;
+  table-layout: auto;
 }
 
 th, td {
   text-align: left;
-  padding: 10px;
+  padding: 12px;
+  white-space: nowrap;
 }
 
 th {
-  background-color: #007bff;
+  background-color: #4a90e2;
   color: white;
 }
 
 tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: #f9f9f9;
 }
 
 tr:hover {
-  background-color: #e0e0e0;
+  background-color: #e1eaff;
 }
 
-.error-message {
-  color: red;
-  font-size: 12px;
-  margin-top: 2px;
+/* --- RESPONSIVE PARA CELULARES 425px --- */
+@media (max-width: 425px) {
+  body {
+    padding: 10px;
+  }
+
+  .form-container, .table-container {
+    width: 100%;
+    margin: 15px 0;
+    padding: 20px 15px;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .form-group, .direccion-row {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .direccion-row {
+    gap: 10px;
+  }
+
+  input, button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  button {
+    align-self: stretch;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  table {
+    font-size: 12px;
+    display: block;
+    white-space: nowrap;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+
+  tr:hover {
+    background-color: #e8e8e8;
+  }
 }

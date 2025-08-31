@@ -1,3 +1,5 @@
+//Realizamos las importaciones necesarias
+
 import express from "express";
 import cors from "cors";
 import { connectdb } from "./dbconnection.js";
@@ -8,7 +10,8 @@ const PORT = 3001;
 app.use(cors());
 app.use(express.json());
 
-// Listar todos los usuarios
+// Listamos todos los usuarios
+
 app.get("/usuarios", async (req, res) => {
   const db = await connectdb();
   if (!db) return res.status(500).json({ error: "Error DB" });

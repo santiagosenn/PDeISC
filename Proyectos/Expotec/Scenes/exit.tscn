@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://lki3orpuetar"]
+
+[ext_resource type="PackedScene" uid="uid://bs1jwsspt1od1" path="res://Models/emergency_exit_low_poly.glb" id="1_35a55"]
+
+[node name="Node3D" type="StaticBody3D"]
+
+[node name="FAB converted" parent="." instance=ExtResource("1_35a55")]
+transform = Transform3D(-0.0327057, 0, 1.02029, 0, 1.02082, 0, -1.02029, 0, -0.0327057, -0.117602, 0, -0.0354491)

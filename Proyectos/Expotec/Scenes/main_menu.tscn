@@ -1,0 +1,64 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0jupfc74eaq"]
+
+[ext_resource type="Script" uid="uid://pn7nnv8qd355" path="res://Scripts/main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://dfiyg5t623jej" path="res://Materials/title.png" id="2_48xlc"]
+
+[node name="Main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_28flt")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1154.0
+offset_bottom = 651.0
+color = Color(0, 0, 0, 1)
+
+[node name="game_logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -185.0
+offset_top = -325.0
+offset_right = 1351.0
+offset_bottom = 699.0
+texture = ExtResource("2_48xlc")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 425.0
+offset_right = 696.0
+offset_bottom = 488.0
+theme_override_font_sizes/font_size = 40
+text = "JUGAR"
+
+[node name="Button4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 518.0
+offset_right = 693.0
+offset_bottom = 581.0
+theme_override_font_sizes/font_size = 40
+text = "SALIR"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 606.0
+offset_right = 1147.0
+offset_bottom = 646.0
+text = "Hecho por Santiago Senn"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1108.0
+offset_top = 8.0
+offset_right = 1316.0
+offset_bottom = 48.0
+text = "V1.0"
+
+[connection signal="pressed" from="Button" to="." method="play"]
+[connection signal="pressed" from="Button4" to="." method="quit"]

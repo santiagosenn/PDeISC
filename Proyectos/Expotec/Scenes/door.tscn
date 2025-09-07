@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://8un34vmpik6l"]
+
+[ext_resource type="Script" uid="uid://dv0pehsjl6a24" path="res://Scripts/door_parent.gd" id="1_fahql"]
+[ext_resource type="Script" uid="uid://bm7h1oinnkit1" path="res://Scripts/door.gd" id="1_p0e35"]
+[ext_resource type="Material" uid="uid://c7p72fo2q545d" path="res://Materials/table.tres" id="1_w6aom"]
+[ext_resource type="AudioStream" uid="uid://bsrkv8e8el37b" path="res://Sounds/door open.wav" id="3_a43ba"]
+[ext_resource type="AudioStream" uid="uid://dbjuuuchp4lef" path="res://Sounds/door closed.wav" id="4_burcv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p0e35"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_fahql"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_w6aom"]
+
+[sub_resource type="Animation" id="Animation_fahql"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_w6aom"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.57708, 0), Vector3(0, 0.000349014, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ab4ky"]
+resource_name = "locked"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.0349066, 0), Vector3(0, 0.0349066, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p0e35"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.59102, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ab4ky"]
+_data = {
+&"RESET": SubResource("Animation_fahql"),
+&"close": SubResource("Animation_w6aom"),
+&"locked": SubResource("Animation_ab4ky"),
+&"open": SubResource("Animation_p0e35")
+}
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_fahql")
+
+[node name="hinge" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.461666, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hinge"]
+transform = Transform3D(1.12172, 0, 0, 0, 2.21641, 0, 0, 0, 0.324132, 0.461666, 0, 0)
+collision_layer = 2
+script = ExtResource("1_p0e35")
+
+[node name="open" type="AudioStreamPlayer3D" parent="hinge/StaticBody3D"]
+transform = Transform3D(0.891488, 0, 0, 0, 0.451179, 0, 0, 0, 3.08517, 2.65684e-08, 0, 0)
+stream = ExtResource("3_a43ba")
+
+[node name="close" type="AudioStreamPlayer3D" parent="hinge/StaticBody3D"]
+transform = Transform3D(0.891488, 0, 0, 0, 0.451179, 0, 0, 0, 3.08517, 2.65684e-08, 0, 0)
+stream = ExtResource("4_burcv")
+
+[node name="locked" type="AudioStreamPlayer3D" parent="hinge/StaticBody3D"]
+transform = Transform3D(0.891488, 0, 0, 0, 0.451179, 0, 0, 0, 3.08517, 2.65684e-08, 0, 0)
+stream = ExtResource("4_burcv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/StaticBody3D"]
+transform = Transform3D(0.990318, 0, 0, 0, 1, 0, -3.88487e-09, 0, 0.521419, 0, 0, 0)
+shape = SubResource("BoxShape3D_p0e35")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="hinge/StaticBody3D"]
+transform = Transform3D(0.990318, 0, 0, 0, 1, 0, 0, 0, 0.521419, 0, 0, 0)
+material_override = ExtResource("1_w6aom")
+mesh = SubResource("BoxMesh_fahql")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="hinge/StaticBody3D"]
+transform = Transform3D(0.150355, 0, 0, 0, -2.87793e-08, 0.09187, 0, 0.658394, 4.01577e-09, 0.230775, 0, 0)
+mesh = SubResource("CylinderMesh_w6aom")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hinge/StaticBody3D"]
+root_node = NodePath("../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_ab4ky")
+}

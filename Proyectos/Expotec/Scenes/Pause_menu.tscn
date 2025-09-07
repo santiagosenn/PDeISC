@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://dt4i4cty3bi0w"]
+
+[node name="Pause_menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -4.0
+offset_right = 1154.0
+offset_bottom = 644.0
+color = Color(0, 0, 0, 0.556863)
+
+[node name="paused_text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 429.0
+offset_top = 21.0
+offset_right = 722.0
+offset_bottom = 119.0
+theme_override_font_sizes/bold_italics_font_size = 1
+theme_override_font_sizes/normal_font_size = 60
+text = "PAUSADO"
+
+[node name="resume_button" type="Button" parent="."]
+modulate = Color(0.201686, 0.469564, 0.426732, 1)
+layout_mode = 0
+offset_left = 376.0
+offset_top = 142.0
+offset_right = 771.0
+offset_bottom = 218.0
+theme_override_font_sizes/font_size = 40
+text = "REANUDAR"
+
+[node name="settings_button" type="Button" parent="."]
+modulate = Color(0.201686, 0.469564, 0.426732, 1)
+layout_mode = 0
+offset_left = 374.0
+offset_top = 247.0
+offset_right = 769.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 40
+text = "OPCIONES"
+
+[node name="controls_button" type="Button" parent="."]
+modulate = Color(0.201686, 0.469564, 0.426732, 1)
+layout_mode = 0
+offset_left = 374.0
+offset_top = 349.0
+offset_right = 769.0
+offset_bottom = 427.0
+theme_override_font_sizes/font_size = 40
+text = "CONTROLES"
+
+[node name="menu_button" type="Button" parent="."]
+modulate = Color(0.201686, 0.469564, 0.426732, 1)
+layout_mode = 0
+offset_left = 376.0
+offset_top = 442.0
+offset_right = 771.0
+offset_bottom = 518.0
+theme_override_font_sizes/font_size = 40
+text = "SALIR AL MENU"
+
+[node name="quit_button" type="Button" parent="."]
+modulate = Color(0.201686, 0.469564, 0.426732, 1)
+layout_mode = 0
+offset_left = 376.0
+offset_top = 533.0
+offset_right = 771.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 40
+text = "SALIR DEL JUEGO"

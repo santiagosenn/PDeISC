@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://cg5pd6imgg6o7"]
+
+[ext_resource type="Script" uid="uid://bxbcixjq15ffi" path="res://Scripts/object.gd" id="1_h806f"]
+[ext_resource type="PackedScene" uid="uid://d3xb2cfm68f0x" path="res://Models/cc0_keys.glb" id="3_uwcgf"]
+[ext_resource type="AudioStream" uid="uid://dfpfaox1f8b34" path="res://Sounds/pickup_key.wav" id="3_xf5hi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4ome6"]
+
+[node name="Object" type="StaticBody3D"]
+transform = Transform3D(0.620291, 0, 0, 0, 1, 0, 0, 0, 0.617175, 0, 0, 0)
+script = ExtResource("1_h806f")
+
+[node name="take" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1.61215, 0, 0, 0, 1, 0, 0, 0, 1.62029, 0, 0, 0)
+stream = ExtResource("3_xf5hi")
+volume_db = 3.048
+unit_size = 25.22
+pitch_scale = 0.85
+max_distance = 3.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.09875, 0, 0, -0.427353)
+shape = SubResource("BoxShape3D_4ome6")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_uwcgf")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0.00840471, -0.0249301, -0.153827)

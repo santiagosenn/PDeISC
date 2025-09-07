@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3dj0s50l8ex2"]
+
+[ext_resource type="Script" uid="uid://dqfn1x8foc7c1" path="res://Scripts/exit_portal.gd" id="1_dyi1j"]
+[ext_resource type="PackedScene" uid="uid://dpiwsah7ar8o" path="res://Models/double_doors.glb" id="2_dyi1j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_atie1"]
+
+[node name="Exit_portal" type="Area3D"]
+script = ExtResource("1_dyi1j")
+scene_name = "victory"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.62049, 0, 0, 0, 2.256, 0, 0, 0, 1.44575, 0, 0, 0)
+shape = SubResource("BoxShape3D_atie1")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_dyi1j")]
+transform = Transform3D(0.00732951, 0, 0, 0, 0.00871803, 0, 0, 0, 0.00130707, -0.026278, -1.37133, 0.380475)
+
+[connection signal="body_entered" from="." to="." method="enter_trigger"]

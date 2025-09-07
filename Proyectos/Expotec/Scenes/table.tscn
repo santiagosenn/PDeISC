@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://diajbe6ymti0r"]
+
+[ext_resource type="PackedScene" uid="uid://dwq1judw274m1" path="res://Models/table_wood.glb" id="1_ix8et"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ffdui"]
+
+[node name="Table" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(2.2114, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_ffdui")
+
+[node name="table_wood" parent="StaticBody3D" instance=ExtResource("1_ix8et")]
+transform = Transform3D(1.04488, 0, 0, 0, 1.516, 0, 0, 0, 1, -0.0719851, -0.690448, 0.0369039)

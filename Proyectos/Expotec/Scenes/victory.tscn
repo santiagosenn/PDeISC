@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5af8f0qb66ey"]
+
+[ext_resource type="Script" uid="uid://cw7d7o1ji2obx" path="res://Scripts/victory.gd" id="1_1fp7o"]
+
+[node name="Victory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1fp7o")
+
+[node name="bg" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 653.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 353.0
+offset_top = 231.0
+offset_right = 784.0
+offset_bottom = 331.0
+theme_override_font_sizes/bold_italics_font_size = 60
+theme_override_font_sizes/normal_font_size = 60
+text = "HAS GANADO!"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 445.0
+offset_top = 422.0
+offset_right = 691.0
+offset_bottom = 485.0
+theme_override_font_sizes/font_size = 40
+text = "MAIN MENU
+"
+
+[connection signal="pressed" from="Button" to="." method="to_menu"]

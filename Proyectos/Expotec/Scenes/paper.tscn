@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq65kyf2t41n5"]
+
+[ext_resource type="Script" uid="uid://et6q1jwmlb0w" path="res://Scripts/paper.gd" id="1_thabk"]
+[ext_resource type="AudioStream" uid="uid://p6pygvfd22hf" path="res://Sounds/paperpickup.wav" id="2_c7gsp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4urcx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_thabk"]
+
+[node name="Paper" type="StaticBody3D"]
+transform = Transform3D(0.790778, 0, 0, 0, 0.0848148, 0, 0, 0, 1.17126, 0, 0, 0)
+script = ExtResource("1_thabk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4urcx")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_thabk")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_c7gsp")

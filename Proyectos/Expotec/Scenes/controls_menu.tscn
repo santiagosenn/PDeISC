@@ -1,0 +1,92 @@
+[gd_scene load_steps=2 format=3 uid="uid://jvo0gklhccoq"]
+
+[ext_resource type="Script" uid="uid://curl1lowxq1r4" path="res://Scripts/controls_menu.gd" id="1_as82s"]
+
+[node name="ControlsMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_as82s")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 199.0
+offset_right = 356.0
+offset_bottom = 266.0
+theme_override_font_sizes/normal_font_size = 40
+text = "MOVERSE"
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 16.0
+offset_right = 246.0
+offset_bottom = 152.0
+theme_override_font_sizes/normal_font_size = 30
+text = "<- ATRAS"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 125.0
+offset_right = 758.0
+offset_bottom = 192.0
+theme_override_font_sizes/normal_font_size = 40
+text = "W"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 637.0
+offset_top = 209.0
+offset_right = 846.0
+offset_bottom = 276.0
+theme_override_font_sizes/normal_font_size = 40
+text = "A      S     W"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 390.0
+offset_right = 766.0
+offset_bottom = 457.0
+theme_override_font_sizes/normal_font_size = 40
+text = "F"
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 497.0
+offset_top = 388.0
+offset_right = 530.0
+offset_bottom = 455.0
+theme_override_font_sizes/normal_font_size = 40
+text = "-"
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 488.0
+offset_top = 200.0
+offset_right = 521.0
+offset_bottom = 267.0
+theme_override_font_sizes/normal_font_size = 40
+text = "-"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 379.0
+offset_right = 362.0
+offset_bottom = 446.0
+theme_override_font_sizes/normal_font_size = 40
+text = "LINTERNA"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_right = 1151.0
+offset_bottom = 657.0
+color = Color(0, 0, 0, 0.152941)

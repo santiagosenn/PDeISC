@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpybtirn376gr"]
+
+[ext_resource type="Script" uid="uid://cq5mhnxrq2rja" path="res://Scripts/pause_menu.gd" id="1_i1muu"]
+
+[node name="Menu_pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i1muu")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 58.0
+offset_right = 679.0
+offset_bottom = 153.0
+theme_override_font_sizes/normal_font_size = 60
+text = "PAUSADO"
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.246456, 0.661806, 0.061036, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 356.0
+offset_top = 207.0
+offset_right = 740.0
+offset_bottom = 270.0
+theme_override_font_sizes/font_size = 40
+text = "REANUDAR"
+
+[node name="Button2" type="Button" parent="."]
+modulate = Color(0.247059, 0.662745, 0.0627451, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 363.0
+offset_top = 389.0
+offset_right = 744.0
+offset_bottom = 452.0
+theme_override_font_sizes/font_size = 40
+text = "VOLVER AL MENU"
+
+[node name="Button3" type="Button" parent="."]
+modulate = Color(0.247059, 0.662745, 0.0627451, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 364.0
+offset_top = 483.0
+offset_right = 743.0
+offset_bottom = 546.0
+theme_override_font_sizes/font_size = 40
+text = "SALIR DEL JUEGO
+"
+
+[node name="Button5" type="Button" parent="."]
+modulate = Color(0.247059, 0.662745, 0.0627451, 1)
+z_index = 1
+layout_mode = 0
+offset_left = 361.0
+offset_top = 290.0
+offset_right = 738.0
+offset_bottom = 353.0
+theme_override_font_sizes/font_size = 40
+text = "CONTROLES"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = -1.0
+offset_right = 1151.0
+offset_bottom = 645.0
+color = Color(0, 0, 0, 0.32549)
+
+[connection signal="pressed" from="Button" to="." method="resumer"]
+[connection signal="pressed" from="Button2" to="." method="back_to_menur"]
+[connection signal="pressed" from="Button3" to="." method="quit_gamer"]
+[connection signal="pressed" from="Button5" to="." method="Control_menu"]

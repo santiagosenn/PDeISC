@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqkpfup22yesj"]
+
+[ext_resource type="Texture2D" uid="uid://bfmyv4uym0i3j" path="res://icon.svg" id="1_jxero"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_i05wy"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sprint_slider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 302.0
+offset_top = 554.0
+offset_right = 895.0
+offset_bottom = 647.0
+theme_override_icons/grabber = SubResource("ImageTexture_i05wy")
+max_value = 1.0
+step = 0.0
+value = 1.0
+
+[node name="interact_text" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 8.0
+offset_right = 317.0
+offset_bottom = 70.0
+theme_override_font_sizes/normal_font_size = 40
+text = "(E) interactuar"
+
+[node name="object_counter" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1078.0
+offset_top = -2.0
+offset_right = 1144.0
+offset_bottom = 60.0
+theme_override_font_sizes/normal_font_size = 40
+text = "0/8"
+
+[node name="paper" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 440.0
+offset_top = 106.0
+offset_right = 748.0
+offset_bottom = 528.0
+texture = ExtResource("1_jxero")
+expand_mode = 1

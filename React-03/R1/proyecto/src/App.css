@@ -1,0 +1,199 @@
+/* Estilos generales de la página */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #eef2f5;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedores de componentes */
+.formulario, .lista-tareas {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Títulos de componentes */
+h2 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #333;
+}
+
+/* Inputs */
+input[type="text"] {
+  width: calc(100% - 100px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+.input-error {
+  border: 2px solid red;
+}
+
+/* Botones generales */
+button {
+  padding: 8px 12px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Mensajes */
+.error {
+  color: red;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.mensaje {
+  color: green;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Lista de tareas */
+.lista-tareas ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.lista-tareas li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* separa nombre y botones */
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.lista-tareas li span {
+  flex: 1; /* ocupa el espacio disponible */
+  cursor: pointer;
+}
+
+/* Botones de tarea */
+.lista-tareas li button {
+  margin-left: 8px; /* separa los botones entre sí y del nombre */
+  padding: 4px 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Colores de los botones */
+.lista-tareas li button[title="Eliminar"] {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.lista-tareas li button[title="Modificar"] {
+  background-color: #4da6ff;
+  color: white;
+}
+
+/* Tareas completadas */
+.lista-tareas li.completada span {
+  text-decoration: line-through;
+  color: #888;
+}
+
+.tarjeta {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #fdf9f3;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.tarjeta img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.tarjeta h3 {
+  margin: 5px 0;
+  color: #333;
+}
+
+.tarjeta p {
+  margin: 3px 0;
+  color: #666;
+}
+
+.contador {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.contador h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.contador .valor {
+  font-size: 32px;
+  margin: 15px 0;
+  color: #555;
+}
+
+.contador button {
+  margin: 0 10px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  background-color: #4da6ff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.contador button:hover {
+  opacity: 0.9;
+}
+
+.hola-mundo {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  background-color: #f0f8ff;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.hola-mundo p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1e90ff; /* azul */
+  margin: 0;
+}

@@ -1,0 +1,195 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 20px 40px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 100;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Secciones */
+section {
+  padding: 100px 20px 40px 20px; /* top padding para que no tape el header */
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Barra divisoria entre secciones */
+.section-divider {
+  width: 100%;
+  height: 8px;
+  background-color: #007bff;
+  border-radius: 12px;
+  margin: 40px 0;
+}
+
+/* Títulos de sección */
+section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007bff;
+  font-size: 2rem;
+  border-bottom: 2px solid #007bff;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Cards para proyectos, skills, etc */
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 10px;
+  flex: 1 1 250px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Contenedor flexible para cards */
+.flex-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* About / Perfil usuario */
+#user {
+  text-align: center;
+}
+
+#user h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+#user p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+/* Botones generales */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Inputs y textarea */
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+/* Mensajes de error */
+.error {
+  color: #ff4d4f;
+  font-size: 0.9rem;
+}
+
+/* Navbar fijo */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  gap: 40px;
+  padding: 15px 0;
+  margin: 0;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #cce5ff;
+}
+
+/* Evitar que las secciones queden tapadas por el navbar */
+main section {
+  padding-top: 100px; /* ajusta según altura del navbar */
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px); /* desde abajo */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* Cuando el elemento entra en vista */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

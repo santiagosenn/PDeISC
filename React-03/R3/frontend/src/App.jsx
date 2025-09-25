@@ -147,42 +147,91 @@ function App() {
       <div className="form-container">
         <h1>Usuarios</h1>
         <form onSubmit={handleSubmit}>
+
           <div className="form-group">
-            <input type="text" name="nombre" placeholder="Ingrese su nombre" value={form.nombre} onChange={handleChange} />
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Ingrese su nombre"
+              value={form.nombre}
+              onChange={handleChange}
+            />
             {errores.nombre && <div className="error-message">{errores.nombre}</div>}
           </div>
 
           <div className="form-group">
-            <input type="text" name="apellido" placeholder="Ingrese su apellido" value={form.apellido} onChange={handleChange} />
+            <input
+              type="text"
+              name="apellido"
+              placeholder="Ingrese su apellido"
+              value={form.apellido}
+              onChange={handleChange}
+            />
             {errores.apellido && <div className="error-message">{errores.apellido}</div>}
           </div>
 
           <div className="direccion-group">
             <div className="direccion-row">
-              <input type="text" name="calle" placeholder="Calle (solo letras)" value={form.calle} onChange={handleChange} />
-              <input type="text" name="numero_calle" placeholder="N°" value={form.numero_calle} onChange={handleChange} />
+              <input
+                type="text"
+                name="calle"
+                placeholder="Calle (solo letras)"
+                value={form.calle}
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                name="numero_calle"
+                placeholder="N°"
+                value={form.numero_calle}
+                onChange={handleChange}
+              />
             </div>
             {errores.calle && <div className="error-message">{errores.calle}</div>}
             {errores.numero_calle && <div className="error-message">{errores.numero_calle}</div>}
           </div>
 
           <div className="form-group">
-            <input type="text" name="telefono" placeholder="Teléfono fijo (opcional)" value={form.telefono} onChange={handleChange} />
+            <input
+              type="text"
+              name="telefono"
+              placeholder="Teléfono fijo (opcional)"
+              value={form.telefono}
+              onChange={handleChange}
+            />
             {errores.telefono && <div className="error-message">{errores.telefono}</div>}
           </div>
 
           <div className="form-group">
-            <input type="text" name="celular" placeholder="Celular (obligatorio)" value={form.celular} onChange={handleChange} />
+            <input
+              type="text"
+              name="celular"
+              placeholder="Celular (obligatorio)"
+              value={form.celular}
+              onChange={handleChange}
+            />
             {errores.celular && <div className="error-message">{errores.celular}</div>}
           </div>
 
           <div className="form-group">
-            <input type="date" name="fecha_nacimiento" value={form.fecha_nacimiento} onChange={handleChange} />
+            <input
+              type="date"
+              name="fecha_nacimiento"
+              value={form.fecha_nacimiento}
+              onChange={handleChange}
+            />
+            <div className="campo-info">Pon tu cumpleaños</div>
             {errores.fecha_nacimiento && <div className="error-message">{errores.fecha_nacimiento}</div>}
           </div>
 
           <div className="form-group">
-            <input type="text" name="email" placeholder="Correo electrónico" value={form.email} onChange={handleChange} />
+            <input
+              type="text"
+              name="email"
+              placeholder="Correo electrónico"
+              value={form.email}
+              onChange={handleChange}
+            />
             {errores.email && <div className="error-message">{errores.email}</div>}
           </div>
 

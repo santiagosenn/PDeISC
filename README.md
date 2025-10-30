@@ -175,6 +175,3 @@ Funcionalidades técnicas
 * Creación dinámica de usuarios social login
 * Validaciones de campos obligatorios y formatos de imagen
 
-
-
-¿Querés que haga eso también?

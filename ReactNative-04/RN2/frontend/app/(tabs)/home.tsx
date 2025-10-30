@@ -8,10 +8,12 @@ import {
   ActivityIndicator,
   RefreshControl,
   Image,
+  TouchableOpacity,
 } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useRouter } from 'expo-router';
 
-const API_URL = 'http://localhost:3000'; // Tu IP correcta
+const API_URL = 'http://localhost:3000';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   userName: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#4285F4',
     marginBottom: 10,
@@ -72,30 +74,32 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
   infoRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: 10,
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: '#f0f0f0',
   },
   infoLabel: {
-    fontSize: 14,
-    color: '#666',
-    fontWeight: '500',
+    fontSize: 12,
+    color: '#999',
+    marginBottom: 5,
   },
   infoValue: {
-    fontSize: 14,
+    fontSize: 16,
     color: '#333',
     fontWeight: '600',
+  },
+  emptyText: {
+    fontSize: 14,
+    color: '#999',
+    fontStyle: 'italic',
   },
   loadingContainer: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    padding: 20,
   },
   statusBadge: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#e8f5e9',
@@ -103,6 +107,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     borderRadius: 20,
     marginBottom: 15,
+    alignSelf: 'flex-start',
   },
   statusText: {
     color: '#2e7d32',
@@ -110,12 +115,38 @@ const styles = StyleSheet.create({
     marginLeft: 8,
     fontSize: 12,
   },
+  backButton: {
+    backgroundColor: '#f44336',
+    padding: 15,
+    borderRadius: 8,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  backButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  locationBox: {
+    backgroundColor: '#f0f7ff',
+    borderRadius: 8,
+    padding: 12,
+    marginTop: 5,
+    borderLeftWidth: 4,
+    borderLeftColor: '#4285F4',
+  },
+  locationText: {
+    fontSize: 13,
+    color: '#1976d2',
+    lineHeight: 20,
+  },
 });
 
 export default function HomeScreen() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     fetchUserData();
@@ -125,6 +156,7 @@ export default function HomeScreen() {
     try {
       const token = await AsyncStorage.getItem('authToken');
       if (!token) {
+        setLoading(false);
         return;
       }
 
@@ -135,6 +167,8 @@ export default function HomeScreen() {
       if (response.ok) {
         const data = await response.json();
         setUser(data);
+      } else {
+        await AsyncStorage.removeItem('authToken');
       }
     } catch (err) {
       console.error('Error al obtener datos:', err);
@@ -149,10 +183,20 @@ export default function HomeScreen() {
     setRefreshing(false);
   };
 
+  const clearSession = async () => {
+    try {
+      await AsyncStorage.removeItem('authToken');
+      router.replace('/');
+    } catch (err) {
+      console.error('Error al limpiar sesión:', err);
+    }
+  };
+
   if (loading) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
         <ActivityIndicator size="large" color="#4285F4" />
+        <Text style={{ marginTop: 10, color: '#666' }}>Cargando perfil...</Text>
       </View>
     );
   }
@@ -160,7 +204,15 @@ export default function HomeScreen() {
   if (!user) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
-        <Text style={{ fontSize: 16, color: '#999' }}>No hay sesión activa</Text>
+        <Text style={{ fontSize: 18, color: '#333', fontWeight: 'bold', marginBottom: 10 }}>
+          😕 No hay sesión activa
+        </Text>
+        <Text style={{ fontSize: 14, color: '#999', textAlign: 'center', marginBottom: 20 }}>
+          Necesitas iniciar sesión para ver tu perfil
+        </Text>
+        <TouchableOpacity style={styles.backButton} onPress={clearSession}>
+          <Text style={styles.backButtonText}>🔐 Volver al Login</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -178,8 +230,8 @@ export default function HomeScreen() {
             <Text style={styles.statusText}>Sesión activa</Text>
           </View>
 
-          <Text style={styles.welcomeText}>¡Hola!</Text>
-          <Text style={styles.userName}>{user.name}</Text>
+          <Text style={styles.welcomeText}>¡Hola, {user.name}! 👋</Text>
+          <Text style={styles.userEmail}>{user.email}</Text>
 
           {user.profilePicture && (
             <View style={styles.profileImageContainer}>
@@ -187,98 +239,58 @@ export default function HomeScreen() {
             </View>
           )}
 
-          <Text style={styles.userEmail}>{user.email}</Text>
-          <Text style={{ fontSize: 12, color: '#999' }}>
+          <Text style={{ fontSize: 12, color: '#999', marginTop: 10 }}>
             Proveedor: <Text style={{ fontWeight: '600' }}>Google</Text>
           </Text>
         </View>
 
-        {/* Sección de Información */}
+        {/* Información de Perfil */}
         <View style={styles.infoSection}>
-          <Text style={styles.sectionTitle}>Información de Perfil</Text>
+          <Text style={styles.sectionTitle}>📋 Información de Perfil</Text>
 
-          {user.profile?.phone && (
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>📱 Teléfono</Text>
+          {/* Nombre */}
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>👤 NOMBRE COMPLETO</Text>
+            <Text style={styles.infoValue}>{user.name}</Text>
+          </View>
+
+          {/* Teléfono */}
+          <View style={styles.infoRow}>
+            <Text style={styles.infoLabel}>📱 TELÉFONO</Text>
+            {user.profile?.phone ? (
               <Text style={styles.infoValue}>{user.profile.phone}</Text>
-            </View>
-          )}
+            ) : (
+              <Text style={styles.emptyText}>No configurado</Text>
+            )}
+          </View>
 
-          {user.profile?.address && (
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>📍 Dirección</Text>
-              <Text style={styles.infoValue}>{user.profile.address.substring(0, 20)}...</Text>
-            </View>
-          )}
-
-          {user.profile?.latitude && (
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>🗺️ Ubicación GPS</Text>
-              <Text style={styles.infoValue}>
-                {user.profile.latitude.toFixed(4)}, {user.profile.longitude.toFixed(4)}
-              </Text>
-            </View>
-          )}
-
-          {user.profile?.documentType && (
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>📄 Documento</Text>
-              <Text style={styles.infoValue}>{user.profile.documentType}</Text>
-            </View>
-          )}
-
-          {user.profile?.documentScan && (
-            <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>📋 Escaneo</Text>
-              <Text style={{ color: '#4CAF50', fontWeight: '600' }}>✓ Cargado</Text>
-            </View>
-          )}
+          {/* Dirección */}
+          <View style={[styles.infoRow, { borderBottomWidth: 0 }]}>
+            <Text style={styles.infoLabel}>📍 DIRECCIÓN</Text>
+            {user.profile?.address ? (
+              <Text style={styles.infoValue}>{user.profile.address}</Text>
+            ) : (
+              <Text style={styles.emptyText}>No configurada</Text>
+            )}
+          </View>
         </View>
 
-        {/* Estado del Perfil */}
+        {/* Ubicación GPS */}
         <View style={styles.infoSection}>
-          <Text style={styles.sectionTitle}>Estado del Perfil</Text>
+          <Text style={styles.sectionTitle}>🗺️ Ubicación GPS</Text>
 
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>📧 Email</Text>
-            <Text style={{ color: '#4CAF50', fontWeight: '600' }}>✓ Verificado</Text>
-          </View>
-
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>👤 Foto de Perfil</Text>
-            <Text
-              style={{
-                color: user.profilePicture ? '#4CAF50' : '#FF9800',
-                fontWeight: '600',
-              }}
-            >
-              {user.profilePicture ? '✓ Agregada' : '⚠ No agregada'}
+          {user.profile?.latitude && user.profile?.longitude ? (
+            <View style={styles.locationBox}>
+              <Text style={styles.locationText}>
+                📍 Latitud: {parseFloat(user.profile.latitude).toFixed(6)}{'\n'}
+                🧭 Longitud: {parseFloat(user.profile.longitude).toFixed(6)}
+              </Text>
+            </View>
+          ) : (
+            <Text style={styles.emptyText}>
+              📍 Ubicación no configurada. Ve a la pestaña "Perfil" para obtener tu ubicación.
             </Text>
-          </View>
-
-          <View style={styles.infoRow}>
-            <Text style={styles.infoLabel}>📍 Ubicación</Text>
-            <Text
-              style={{
-                color: user.profile?.latitude ? '#4CAF50' : '#FF9800',
-                fontWeight: '600',
-              }}
-            >
-              {user.profile?.latitude ? '✓ Agregada' : '⚠ No agregada'}
-            </Text>
-          </View>
-
-          <View style={[styles.infoRow, { borderBottomWidth: 0 }]}>
-            <Text style={styles.infoLabel}>📄 Documento</Text>
-            <Text
-              style={{
-                color: user.profile?.documentScan ? '#4CAF50' : '#FF9800',
-                fontWeight: '600',
-              }}
-            >
-              {user.profile?.documentScan ? '✓ Cargado' : '⚠ No cargado'}
-            </Text>
-          </View>
+          )}
         </View>
       </View>
     </ScrollView>

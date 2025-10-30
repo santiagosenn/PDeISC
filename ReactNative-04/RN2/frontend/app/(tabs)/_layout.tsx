@@ -45,18 +45,6 @@ export default function TabsLayout() {
           headerTitle: 'Mi Perfil',
         }}
       />
-      <Tab.Screen
-        name="settings"
-        component={SettingsScreen}
-        options={{
-          title: 'Ajustes',
-          tabBarLabel: 'Ajustes',
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome name="cog" size={size} color={color} />
-          ),
-          headerTitle: 'Configuración',
-        }}
-      />
     </Tab.Navigator>
   );
 }

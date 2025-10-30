@@ -8,23 +8,22 @@ const mysql = require('mysql2/promise');
 require('dotenv').config();
 
 const app = express();
-app.use(express.json());
 
+// Configurar CORS
 const cors = require('cors');
-
 app.use(cors({
-  origin: ['http://localhost:8081', 'http://10.0.4.50:8081'], // tu frontend
-  methods: ['GET','POST','PUT','DELETE'],
+  origin: ['http://localhost:8081', 'http://localhost:19006', 'http://192.168.1.100:8081'],
   credentials: true
 }));
 
+app.use(express.json());
 
 // Configurar conexión MySQL
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'oauth_app',
+  database: process.env.DB_NAME || 'oauth_app_nueva',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0
